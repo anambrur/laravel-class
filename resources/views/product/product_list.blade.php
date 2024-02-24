@@ -8,6 +8,7 @@
 </head>
 
 <body>
+    <a href="{{route('product.create')}}">Add Product</a>
     <table border="1" width="75%">
         <tr>
             <th>SL</th>
@@ -25,6 +26,12 @@
             <td>
                 <a href="{{route('product.show',$d)}}">Details</a>
                 <a href="{{route('product.edit',$d)}}">Edit</a>
+                <form action="{{route('product.destroy',$d)}}" method="post">
+                    @csrf()
+                    @method('delete')
+                    {{-- <input type="submit" value="Delete"> --}}
+                    <button>submit</button>
+                </form>
             </td>
         </tr>
 

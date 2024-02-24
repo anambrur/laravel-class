@@ -12,9 +12,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $data=Product::all();
-        
-        return view('product/product_list',compact('data'));
+        $data = Product::all();
+
+        return view('product/product_list', compact('data'));
     }
 
     /**
@@ -22,7 +22,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('product/product_add');
     }
 
     /**
@@ -30,7 +30,14 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $name = $request->input('name');
+        $details = $request->input('details');
+        $price = $request->input('price');
+        Product::create(['name'=>$name,'details'=>$details,'price'=>$price]);
+        // $data=$request->all();
+        // Product::create($data);
+        return redirect()->route('product.index');
+
     }
 
     /**
@@ -39,7 +46,7 @@ class ProductController extends Controller
     public function show(Product $product)
     {
         // dd($product);
-        return view('product/product_details',compact('product'));
+        return view('product/product_details', compact('product'));
     }
 
     /**
@@ -63,6 +70,7 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+        return redirect()->route('product.index');
     }
 }

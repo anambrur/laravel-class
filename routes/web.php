@@ -23,3 +23,4 @@ Route::get('/', function () {
 
 Route::resource('/admin',AdminController::class)->names('admin');
 Route::resource('/product',ProductController::class)->names('product');
+Route::get('/home',[FrontController::class,'home']);
