@@ -24,5 +24,9 @@ Route::get('/', function () {
 
 Route::resource('/admin',AdminController::class)->names('admin');
 Route::resource('/product',ProductController::class)->names('product');
+<<<<<<< HEAD
 Route::get('mailSend',[MailController::class,'mailSend']);
 Route::get('notification',[MailController::class,'notification']);
+=======
+Route::get('/home',[FrontController::class,'home']);
+>>>>>>> b542a75e2dfcc24f55aa31216864a42aacfb4006

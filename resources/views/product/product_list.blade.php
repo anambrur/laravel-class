@@ -14,7 +14,12 @@
 </head>
 
 <body>
+<<<<<<< HEAD
     {{-- <table border="1" width="75%">
+=======
+    <a href="{{route('product.create')}}">Add Product</a>
+    <table border="1" width="75%">
+>>>>>>> b542a75e2dfcc24f55aa31216864a42aacfb4006
         <tr>
             <th>SL</th>
             <th>Name</th>
@@ -31,6 +36,12 @@
             <td>
                 <a href="{{route('product.show',$d)}}">Details</a>
                 <a href="{{route('product.edit',$d)}}">Edit</a>
+                <form action="{{route('product.destroy',$d)}}" method="post">
+                    @csrf()
+                    @method('delete')
+                    {{-- <input type="submit" value="Delete"> --}}
+                    <button>submit</button>
+                </form>
             </td>
         </tr>
 
