@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,3 +24,5 @@ Route::get('/', function () {
 
 Route::resource('/admin',AdminController::class)->names('admin');
 Route::resource('/product',ProductController::class)->names('product');
+Route::get('mailSend',[MailController::class,'mailSend']);
+Route::get('notification',[MailController::class,'notification']);

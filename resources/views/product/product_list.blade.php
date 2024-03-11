@@ -5,10 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
 </head>
 
 <body>
-    <table border="1" width="75%">
+    {{-- <table border="1" width="75%">
         <tr>
             <th>SL</th>
             <th>Name</th>
@@ -16,7 +22,7 @@
             <th>Price</th>
             <th>Action</th>
         </tr>
-        @foreach($data as $k=> $d)
+        @foreach ($data as $k => $d)
         <tr>
             <td>{{$k+1}}</td>
             <td>{{$d->name}}</td>
@@ -29,7 +35,26 @@
         </tr>
 
         @endforeach
+    </table> --}}
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>Ctegory</th>
+            </tr>
+        </thead>
+        <tbody>
+            @forelse ($data as $d)
+                <tr>
+                    <td>{{ $d->category }}</td>
+                </tr>
+            @empty
+            @endforelse
+
+        </tbody>
     </table>
+    {{ $data->links() }}
 </body>
 
 </html>
